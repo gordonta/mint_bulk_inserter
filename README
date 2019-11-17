@@ -3,6 +3,16 @@ I identified that you could manually add transactions and proxied the request to
 So I tested manually editing that in burp repeater and sending it back- lo and behold it works.  SO I built this python script to automate adding
 transactions that I exported from my bank account.
 
+If you dont have burp or a proxy, you can capture the request information from your browser.  In firefox, click "+ Transaction".  Inside the popup, right-click
+and select 'Inspect Element'.  Select the 'Network" tab.  Fill in fake data in the transaction popup then submit with "I'M DONE".  
+A POST request will pop up to /updateTransaction.xevent.  Click that and then right click the request and select "copy -> Copy as cURL".  Copy the cURL request and then go to
+a cURL to Python converter (I used the one at https://curl.trillworks.com/).  Note that "Copy as cURL" does not copy the POST body, which is important, so manually add the body to
+the --data "" field.  you can grab the data by going back to the network tab and clicking again on the /updateTransaction.xevent request.  Right click and select "Edit and Resend".  
+Firefox will put the POST request in a pane to the left, merely copy the raw body of the POST and go back to the cURL to Python converter.  Put the body of the POST request into the --data
+field, between the "" quotes.  Then copy the python converted request to the right and paste that inside the code here.  Be sure to take the actual requests.post() function call and replace the current 
+requests.post() call inside the while loop.  Also watch to make sure you dont now have another "import requests" in your file.  Alltogether, using a proxy is easier, but this works too.
+
+
 Note- The token and cookie expire periodically.  You need to stay relatively active on mint in your browser otherwise the cookies will time out and your script will not work. 
 /updateTransaction.xevent returns a 200 even if the session is inactive and POST requests to that endpoint do not "refresh" your cookie activity, so
 you need to manually stay and refresh your mint session while the script is running.
