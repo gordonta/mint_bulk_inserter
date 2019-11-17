@@ -1,0 +1,8 @@
+Hello.  I wrote this code because I was bored at drill and mint would only allow me to upload 90 days worth of transactions from my Bank.
+I identified that you could manually add transactions and proxied the request to manually upload a transaction, which was a POST request to /updateTransaction.xevent
+So I tested manually editing that in burp repeater and sending it back- lo and behold it works.  SO I built this python script to automate adding
+transactions that I exported from my bank account.
+
+Note- The token and cookie expire periodically.  You need to stay relatively active on mint in your browser otherwise the cookies will time out and your script will not work. 
+/updateTransaction.xevent returns a 200 even if the session is inactive and POST requests to that endpoint do not "refresh" your cookie activity, so
+you need to manually stay and refresh your mint session while the script is running.
