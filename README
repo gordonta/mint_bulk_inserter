@@ -16,3 +16,14 @@ requests.post() call inside the while loop.  Also watch to make sure you dont no
 Note- The token and cookie expire periodically.  You need to stay relatively active on mint in your browser otherwise the cookies will time out and your script will not work. 
 /updateTransaction.xevent returns a 200 even if the session is inactive and POST requests to that endpoint do not "refresh" your cookie activity, so
 you need to manually stay and refresh your mint session while the script is running.
+
+
+NOTE:
+Categories are an impotant issue to talk about here.  My bank exported its own category for each transaction, but Mint has a unique set of categories.  More importantly,
+each of Mint's categories have a corresponding category ID that is needed to acurrately update the category when you insert a new transaction.  Since there is a natural difference
+between my bank's categories and Mint's, I needed to do a fuzzy string comparison to see if my bank's categories were at all "similar" to one of mint's categories.  I needed
+a new library to take care of this "similarity-ness", so I downloaded the fuzzywuzzy package which relies on The Levenshtein distance to determine how apart are two sequences of
+words.  Full descriptions available at https://www.datacamp.com/community/tutorials/fuzzy-string-python, and I give full credit to those authors for this stuff.  I just copied the code
+that compared a string with a list of strings and returns which string in the list is "closest".  To this end, some of the strings arnt close at all, so I set a metric of 70 to determine
+how "close" I was comfortable with accepting (based on some rudimentary testing).  This value can be changed of course.  Ultimately, this all serves to get your new transactions 
+"close" to a mint category.  I recommend scrubbing them each manually to be sure its accurrate.
