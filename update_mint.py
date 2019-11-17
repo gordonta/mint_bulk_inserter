@@ -16,8 +16,8 @@ headers = {
 }
 
 data = {
-########CHANGE THIS########
-    ####You need to capture a request to /updateTransaction.xevent and populate this with the data
+    ########CHANGE THIS########
+    ####You need to capture a request to /updateTransaction.xevent and populate this with the data.  The code below assumes that data is a dictionary where each param is a key-value pairing.  Requests such as data["merchant"] need to work.
 }
 
 categories = {  #These categories obtained by a request to https://mint.intuit.com/app/getJsonData.xevent?task=categories&rnd=1574015986589
@@ -121,8 +121,8 @@ categories = {  #These categories obtained by a request to https://mint.intuit.c
 
 category_keys = categories.keys() #Save the keys so we can reference with fuzzywuzzy
 
-#here is a chunk of my bank transactions (modified for privacy obviously).  This was originally a csv file, however I changed all the comma deliminations to \
-#of this, all I really care about is the date, merchant, category, and amount
+#here is a chunk of my bank transactions (modified for privacy, obviously).  This was originally a csv file, however I changed all the comma deliminations to \ (I dont remember why, sorry)
+#of this data that my bank exported, all I really care about is the date, merchant, category, and amount
 '''
 posted\\8/16/2019\\WF HOME MTG      AUTO PAY   ***********1234\Mortgages\-997.92
 posted\\8/16/2019\\USAA P&amp;C INT     AUTOPAY    ***********1234\Insurance\-61.53
@@ -132,7 +132,7 @@ posted\\8/16/2019\\BUFFALO WILD WINGS  FAIRFAX     VA\Restaurants/Dining\-19.08
 posted\\8/16/2019\\GIANT FOOD INC  FAIRFAX     VA\Groceries\-14.77
 posted\\8/16/2019\\PANERA BREAD\Restaurants/Dining\-8.64
 '''
-filepath = 'C:\\Users\\Username\\Downloads\\bk_download- mangled.csv' #This is the file of bank transaction data.  My code assumes it is formated like the above
+filepath = 'C:\\Users\\Username\\Downloads\\bank_transaction_data.csv' #This is the file of bank transaction data.  My code assumes it is formated like the above
 count = 0
 with open(filepath) as fp:
     line = fp.readline()
