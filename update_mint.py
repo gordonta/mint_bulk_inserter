@@ -125,7 +125,7 @@ category_keys = categories.keys() #Save the keys so we can reference with fuzzyw
 #of this data that my bank exported, all I really care about is the date, merchant, category, and amount
 '''
 posted\\8/16/2019\\WF HOME MTG      AUTO PAY   ***********1234\Mortgages\-997.92
-posted\\8/16/2019\\USAA P&amp;C INT     AUTOPAY    ***********1234\Insurance\-61.53
+posted\\8/16/2019\\WF Insurance     AUTOPAY    ***********1234\Insurance\-61.53
 posted\\8/16/2019\\VA ABC STORE 063         FAYETTEVILLE       NC\Groceries\-44.49
 posted\\8/16/2019\\GIANT FOOD INC   FAIRFAX     VA\Groceries\-26.48
 posted\\8/16/2019\\BUFFALO WILD WINGS  FAIRFAX     VA\Restaurants/Dining\-19.08
