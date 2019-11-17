@@ -1,5 +1,5 @@
-import requests
 from fuzzywuzzy import process
+import requests
 
 cookies = { ... } ###CHANGEME
 
