@@ -16,27 +16,8 @@ headers = {
 }
 
 data = {
-  'cashTxnType': 'on',
-  'mtCashSplit': 'on',
-  'mtCheckNo': '',
-  'tag1133076': '0',
-  'tag1133077': '0',
-  'tag1133078': '0',
-  'task': 'txnadd',
-  'txnId': ':0',
-  'mtType': 'cash',
-  'mtAccount': '4200388',
-  'symbol': '',
-  'note': '',
-  'isInvestment': 'false',
-  'catId': '20',
-  'category': 'Uncategorized',
-  'merchant': 'test',
-  'date': '08/17/2019',
-  'amount': '11',
-  'mtIsExpense': 'true',
-  'mtCashSplitPref': '1',
-  'token': ' ... ' ###CHANGEME
+########CHANGE THIS########
+    ####You need to capture a request to /updateTransaction.xevent and populate this with the data
 }
 
 categories = {  #These categories obtained by a request to https://mint.intuit.com/app/getJsonData.xevent?task=categories&rnd=1574015986589
